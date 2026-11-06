@@ -1,5 +1,13 @@
 inheritance: true
 reviews:
+  profile: assertive
+  path_instructions:
+    - path: "retry_payload.py"
+      instructions: >-
+        Review the documented return-value contracts against the implementation.
+        Report genuine contract violations as inline review comments even though
+        this PR is an isolated test fixture. Do not invent a defect if the
+        documented contract is satisfied.
   auto_approvals:
     enabled: true
   auto_review:
