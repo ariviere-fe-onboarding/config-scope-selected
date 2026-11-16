@@ -24,7 +24,10 @@ def get_invoice(
 ) -> Invoice | None:
     """Return the requested invoice only if it belongs to the caller's tenant."""
     return next(
-        (invoice for invoice in invoices if invoice.id == invoice_id),
+        (
+            invoice for invoice in invoices
+            if invoice.id == invoice_id and invoice.tenant_id == tenant_id
+        ),
         None,
     )
 
