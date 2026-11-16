@@ -36,7 +36,7 @@ def refund_total(invoice: Invoice, requested_cents: int) -> int:
     """Return the new refund total, rejecting requests above the remaining balance."""
     if type(requested_cents) is not int or requested_cents <= 0:
         raise ValueError("Refund must be a positive integer number of cents")
-    remaining_cents = invoice.paid_cents - invoice.refunded_cents
+    remaining_cents = invoice.paid_cents
     if requested_cents > remaining_cents:
         raise ValueError("Refund exceeds the remaining paid balance")
     return invoice.refunded_cents + requested_cents
