@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en-US
+inheritance: false
+reviews:
+  profile: chill
+  high_level_summary: true
+  high_level_summary_in_walkthrough: false
+  high_level_summary_instructions: |
+    Start the summary with "**PR confidence: N/5**" and one short explanation.
+    Assess the current state of the whole pull request, including earlier changes
+    and subsequent fixes, rather than only the newest commit.
+    Use this rubric:
+    5/5: No concrete correctness, security, or data-integrity concern identified.
+    4/5: Only limited non-blocking concerns remain.
+    3/5: A material uncertainty or missing verification warrants human review.
+    2/5: A concrete correctness or security defect should be fixed before merging.
+    1/5: A concrete severe risk such as cross-tenant data exposure or data loss.
+    Reassess on each review; do not copy a previous score or treat a resolved
+    discussion alone as proof that code is fixed. This is an advisory assessment,
+    not a probability or a guarantee. Follow it with a concise change summary.
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    base_branches:
+      - "codex/confidence-score-base-20261116"
+  auto_approvals:
+    enabled: false
+  poem: false
+  sequence_diagrams: false
+  suggested_reviewers: false
+  auto_assign_reviewers: false
+  suggested_labels: false
+  auto_apply_labels: false
+  related_issues: false
+  related_prs: false
+  finishing_touches:
+    autofix:
+      enabled: false
+chat:
+  auto_reply: true
